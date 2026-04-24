@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Victoria Barros — RevOps & Data Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F8FA;--surface:#fff;--s2:#F1F3F7;--s3:#E8ECF2;--border:#DDE1EA;--border2:#C5CBDA;
+  --text:#0D1117;--t2:#4A5568;--t3:#8896AA;
+  --blue:#1A5FD4;--bl:#EBF1FD;--bm:#3578F0;--bd:#0A3B8C;
+  --green:#0C7A4A;--gl:#E4F7EE;--gm:#16A869;
+  --amber:#8A5C0A;--al:#FEF3E2;--am:#F59E0B;
+  --red:#B91C1C;--rl:#FEE8E8;--rm:#EF4444;
+  --purple:#5B21B6;--pl:#EDE9FE;--pm:#7C3AED;
+  --r:8px;--rl:12px;--rl2:16px;
+  --mono:'JetBrains Mono',monospace;
+  --sh:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --sh-md:0 4px 16px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
+  --sh-lg:0 8px 32px rgba(0,0,0,.1),0 4px 8px rgba(0,0,0,.06)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,248,250,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:30px;height:30px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;letter-spacing:-.3px;flex-shrink:0}
+.nav-name{font-size:13px;font-weight:700;letter-spacing:-.2px}
+.nav-role{font-size:11px;color:var(--t3);margin-top:-1px}
+.nav-links{display:flex;gap:2px}
+.nav-links a{padding:6px 12px;border-radius:6px;font-size:12px;font-weight:500;color:var(--t2);transition:all .15s}
+.nav-links a:hover{background:var(--s2);color:var(--blue)}
+.nav-cta{background:var(--blue);color:#fff;padding:7px 14px;border-radius:var(--r);font-size:12px;font-weight:600;transition:background .15s;white-space:nowrap}
+.nav-cta:hover{background:var(--bd);color:#fff}
+
+/* HERO */
+.hero{background:var(--surface);border-bottom:1px solid var(--border);padding:64px 32px 56px}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--bl);color:var(--blue);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:20px;letter-spacing:.04em;text-transform:uppercase}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--bm);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:42px;font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-lead{font-size:15px;color:var(--t2);max-width:580px;line-height:1.7;margin-bottom:28px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:var(--r);font-size:13px;font-weight:600;border:1px solid var(--border2);background:var(--surface);color:var(--text);transition:all .15s;cursor:pointer;font-family:'Inter',sans-serif}
+.btn:hover{box-shadow:var(--sh-md);transform:translateY(-1px);border-color:var(--border2)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.primary:hover{background:var(--bd)}
+.btn.green{background:var(--gm);border-color:var(--gm);color:#fff}
+.btn.green:hover{background:var(--green)}
+.hero-aside{display:flex;flex-direction:column;gap:12px;min-width:260px}
+.contact-card{background:var(--s2);border:1px solid var(--border);border-radius:var(--rl);padding:16px;box-shadow:var(--sh)}
+.contact-item{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:var(--r);transition:background .15s;gap:12px}
+.contact-item:hover{background:var(--s3)}
+.ci-label{font-size:11px;color:var(--t3);font-weight:500}
+.ci-val{font-size:12px;font-weight:600;color:var(--blue);text-align:right}
+.avail-banner{background:linear-gradient(135deg,var(--gl) 0%,#d4f5e6 100%);border:1px solid #a8e6c5;border-radius:var(--rl);padding:14px;display:flex;align-items:center;gap:10px}
+.avail-icon{width:32px;height:32px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;box-shadow:var(--sh)}
+.avail-text{font-size:12px;font-weight:600;color:var(--green);line-height:1.4}
+.avail-sub{font-size:11px;color:var(--gm);font-weight:400}
+
+/* STATS STRIP */
+.stats{background:var(--blue);padding:20px 32px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1px}
+.stat{text-align:center;padding:8px 0}
+.stat-v{font-size:24px;font-weight:900;color:#fff;letter-spacing:-1px;font-family:var(--mono)}
+.stat-l{font-size:10px;color:rgba(255,255,255,.65);margin-top:2px;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+
+/* WRAPPER */
+.wrap{max-width:1100px;margin:0 auto;padding:40px 32px 64px}
+
+/* SECTION */
+.sec{margin-bottom:48px}
+.sec-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;gap:16px}
+.sec-title{font-size:20px;font-weight:800;letter-spacing:-.4px}
+.sec-sub{font-size:12px;color:var(--t3);margin-top:2px}
+.sec-link{font-size:12px;font-weight:600;color:var(--blue)}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl2);box-shadow:var(--sh)}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.proj{overflow:hidden;transition:box-shadow .2s,transform .2s}
+.proj:hover{box-shadow:var(--sh-lg);transform:translateY(-2px)}
+.proj-hdr{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:16px}
+.proj-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.proj-hdr-body{flex:1}
+.proj-hdr h3{font-size:17px;font-weight:800;letter-spacing:-.3px;margin-bottom:4px}
+.proj-hdr p{font-size:13px;color:var(--t2);line-height:1.55}
+.proj-hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.tag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.02em}
+.tag.blue{background:var(--bl);color:var(--blue)}
+.tag.green{background:var(--gl);color:var(--green)}
+.tag.amber{background:var(--al);color:var(--amber)}
+.tag.purple{background:var(--pl);color:var(--purple)}
+.tag.red{background:var(--rl);color:var(--red)}
+.tag.gray{background:var(--s3);color:var(--t2)}
+.proj-body{padding:20px 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.proj-block-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);margin-bottom:8px;font-family:var(--mono)}
+.proj-block p{font-size:13px;color:var(--t2);line-height:1.6}
+.proj-block ul{padding-left:14px}
+.proj-block ul li{font-size:13px;color:var(--t2);margin-bottom:4px;line-height:1.55}
+.proj-block ul li::marker{color:var(--blue)}
+.proj-outcome{font-size:13px;font-weight:500;color:var(--green)}
+.proj-tech{display:flex;flex-wrap:wrap;gap:5px;padding:14px 24px;background:var(--s2);border-top:1px solid var(--border)}
+.tech-pill{font-size:10px;font-weight:600;padding:2px 9px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--t2);font-family:var(--mono)}
+
+/* DEMO MOCKUP */
+.demo-strip{background:var(--s2);border-top:1px solid var(--border);padding:16px 24px}
+.demo-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);margin-bottom:10px;font-family:var(--mono)}
+.mockup{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px;overflow:hidden}
+.mock-topbar{background:var(--s2);border-radius:5px;padding:7px 10px;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.mock-dots{display:flex;gap:4px}
+.mock-dot{width:8px;height:8px;border-radius:50%}
+.mock-url{font-size:10px;color:var(--t3);font-family:var(--mono);flex:1;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2px 8px}
+.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.mock-kpi{background:var(--s2);border-radius:5px;padding:7px 10px}
+.mock-kpi-v{font-size:14px;font-weight:800;font-family:var(--mono)}
+.mock-kpi-l{font-size:9px;color:var(--t3);margin-top:1px}
+.mock-charts{display:grid;grid-template-columns:2fr 1fr;gap:6px}
+.mock-chart{background:var(--s2);border-radius:5px;padding:10px;min-height:60px;display:flex;align-items:flex-end;gap:3px}
+.mock-bar{border-radius:2px 2px 0 0;flex:1}
+.mock-donut{background:var(--s2);border-radius:5px;padding:10px;display:flex;align-items:center;justify-content:center}
+.donut-svg{width:50px;height:50px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:18px;box-shadow:var(--sh)}
+.skill-icon{font-size:24px;margin-bottom:10px}
+.skill-title{font-size:13px;font-weight:700;margin-bottom:6px}
+.skill-items{display:flex;flex-wrap:wrap;gap:5px}
+.skill-item{font-size:11px;background:var(--s2);border:1px solid var(--border);border-radius:20px;padding:2px 9px;color:var(--t2);font-family:var(--mono)}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:160px 1fr;gap:20px;position:relative;padding-bottom:28px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::after{content:'';position:absolute;left:171px;top:8px;bottom:0;width:1px;background:var(--border)}
+.tl-item:last-child::after{display:none}
+.tl-dot{position:absolute;left:163px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--blue);border:2px solid var(--surface);z-index:1}
+.tl-date{font-size:11px;color:var(--t3);font-family:var(--mono);padding-top:4px;text-align:right;line-height:1.4}
+.tl-body{}
+.tl-title{font-size:14px;font-weight:700;margin-bottom:2px}
+.tl-company{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:8px}
+.tl-body ul{padding-left:14px}
+.tl-body ul li{font-size:12px;color:var(--t2);margin-bottom:3px;line-height:1.55}
+.tl-body ul li::marker{color:var(--bm)}
+.tl-achievements{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ach{font-size:10px;font-weight:600;background:var(--gl);color:var(--green);padding:2px 8px;border-radius:20px;font-family:var(--mono)}
+
+/* LANGUAGES */
+.lang-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.lang-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px;text-align:center;box-shadow:var(--sh)}
+.lang-flag{font-size:24px;margin-bottom:6px}
+.lang-name{font-size:13px;font-weight:700;margin-bottom:2px}
+.lang-level{font-size:11px;color:var(--t3)}
+.lang-bar{height:3px;background:var(--s3);border-radius:999px;margin-top:8px;overflow:hidden}
+.lang-fill{height:100%;border-radius:999px;background:var(--blue)}
+
+/* CONFIDENTIALITY NOTICE */
+.notice{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fcd34d;border-radius:var(--rl);padding:14px 18px;display:flex;align-items:flex-start;gap:12px;margin-bottom:32px}
+.notice-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.notice-text{font-size:12px;color:#78350f;line-height:1.6}
+.notice-text strong{color:#92400e}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--blue) 0%,var(--bd) 100%);border-radius:var(--rl2);padding:40px;text-align:center;color:#fff}
+.cta-section h2{font-size:26px;font-weight:900;letter-spacing:-.5px;margin-bottom:10px}
+.cta-section p{font-size:14px;opacity:.8;max-width:500px;margin:0 auto 24px;line-height:1.6}
+.cta-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--blue);border:none;padding:11px 20px;border-radius:var(--r);font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:7px}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.btn-outline-white{background:none;color:#fff;border:1.5px solid rgba(255,255,255,.5);padding:11px 20px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:7px}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* FOOTER */
+.footer{text-align:center;padding:24px 32px;font-size:11px;color:var(--t3);border-top:1px solid var(--border);background:var(--surface);font-family:var(--mono)}
+
+/* PRINT / CV */
+@media print{
+  .nav,.stats,.hero-actions,.demo-strip,.cta-section,.footer{display:none!important}
+  body{background:#fff;font-size:12px}
+  .hero{padding:20px 0;border:none}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-aside{display:none}
+  .wrap{padding:10px 0}
+  .proj-body{grid-template-columns:1fr 1fr 1fr}
+  .card,.proj{box-shadow:none;border:1px solid #ddd}
+  .skills-grid{grid-template-columns:repeat(3,1fr)}
+  h1{font-size:28px}
+}
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}.hero-aside{display:none}
+  .stats-inner{grid-template-columns:repeat(3,1fr)}.skills-grid{grid-template-columns:1fr 1fr}
+  .proj-body{grid-template-columns:1fr 1fr}.lang-grid{grid-template-columns:repeat(2,1fr)}
+  .tl-item{grid-template-columns:1fr}.tl-item::after,.tl-dot{display:none}.tl-date{text-align:left;margin-bottom:4px}
+}
+@media(max-width:640px){
+  h1{font-size:28px}.hero{padding:36px 20px 28px}.wrap{padding:28px 20px 48px}.nav{padding:0 16px}
+  .nav-links,.nav-role{display:none}.proj-body{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr}
+  .mock-kpis{grid-template-columns:repeat(2,1fr)}.lang-grid{grid-template-columns:repeat(2,1fr)}.stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo">VB</div>
+    <div>
+      <div class="nav-name">Victoria Barros</div>
+      <div class="nav-role">RevOps · Sales Ops · Data</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="mailto:vitoriaregiabs01@gmail.com">Get in touch →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="hero-dot"></span>Open to international opportunities</div>
+      <h1>Revenue Operations<br>&amp; <em>Data-Driven</em><br>Sales Ops</h1>
+      <p class="hero-lead">7+ years turning messy pipelines, fragmented CRMs and operational chaos into clean dashboards, scalable processes and decisions leadership can actually trust — across B2B, logistics and global environments.</p>
+      <div class="hero-actions">
+        <a href="mailto:vitoriaregiabs01@gmail.com" class="btn primary">✉ Contact me</a>
+        <a href="https://www.linkedin.com/in/victoria-regia-barros/" target="_blank" class="btn">↗ LinkedIn</a>
+        <a href="https://github.com/vitoriaregiabs01-rgb" target="_blank" class="btn">⌥ GitHub</a>
+        <button class="btn" onclick="window.print()">⊕ Download CV</button>
+      </div>
+    </div>
+    <aside class="hero-aside">
+      <div class="contact-card" id="contact">
+        <a class="contact-item" href="https://www.linkedin.com/in/victoria-regia-barros/" target="_blank"><span class="ci-label">LinkedIn</span><span class="ci-val">/victoria-regia-barros</span></a>
+        <a class="contact-item" href="https://github.com/vitoriaregiabs01-rgb" target="_blank"><span class="ci-label">GitHub</span><span class="ci-val">vitoriaregiabs01-rgb</span></a>
+        <a class="contact-item" href="mailto:vitoriaregiabs01@gmail.com"><span class="ci-label">Email</span><span class="ci-val">vitoriaregiabs01@gmail.com</span></a>
+        <a class="contact-item" href="tel:+5585986323804"><span class="ci-label">Phone</span><span class="ci-val">+55 85 98632-3804</span></a>
+        <div class="contact-item"><span class="ci-label">Location</span><span class="ci-val" style="color:var(--t2)">São Paulo, Brazil</span></div>
+        <div class="contact-item"><span class="ci-label">Relocation</span><span class="ci-val" style="color:var(--green)">Open ✓</span></div>
+      </div>
+      <div class="avail-banner">
+        <div class="avail-icon">🌍</div>
+        <div><div class="avail-text">Open to Remote & Relocation</div><div class="avail-sub">RevOps · GTM Ops · CRM · Analytics</div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-v">7+</div><div class="stat-l">Years experience</div></div>
+    <div class="stat"><div class="stat-v">5</div><div class="stat-l">Dashboards built</div></div>
+    <div class="stat"><div class="stat-v">~25%</div><div class="stat-l">Conversion uplift</div></div>
+    <div class="stat"><div class="stat-v">4</div><div class="stat-l">Languages</div></div>
+    <div class="stat"><div class="stat-v">3</div><div class="stat-l">Industries</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- NOTICE -->
+  <div class="notice">
+    <div class="notice-icon">🔒</div>
+    <div class="notice-text"><strong>Confidentiality notice:</strong> All project examples below are sanitized demo versions inspired by real business problems I have solved. No confidential client or company data is shown. They are here to illustrate how I think, build and communicate — the approach, structure and impact, not the raw data.</div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section class="sec" id="projects">
+    <div class="sec-hdr">
+      <div>
+        <div class="sec-title">Selected Projects</div>
+        <div class="sec-sub">What I have actually built — sanitized for confidentiality</div>
+      </div>
+    </div>
+    <div class="proj-grid">
+
+      <!-- PROJECT 1 -->
+      <article class="card proj">
+        <div class="proj-hdr">
+          <div class="proj-icon" style="background:#EBF1FD">📊</div>
+          <div class="proj-hdr-body">
+            <h3>Weekly Pipeline Performance Dashboard</h3>
+            <p>Executive dashboard giving sales leadership full visibility into pipeline volume, revenue potential, owner performance, stage distribution, modality mix and priority HOT opportunities — with week-over-week comparison and YTD views.</p>
+          </div>
+          <div class="proj-hdr-right">
+            <span class="tag blue">Revenue Ops</span>
+            <span class="tag gray">HTML · JavaScript</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-title">The problem</div>
+            <p>Sales teams had no single view of pipeline health. Leadership relied on manual spreadsheet consolidation weekly — slow, error-prone and never fully up to date.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">What I built</div>
+            <ul>
+              <li>6 executive KPIs with live delta vs prior week</li>
+              <li>7 filters: division, branch, owner, stage, modal, market, HOT flag</li>
+              <li>Owner ranking with drill-down per rep</li>
+              <li>Week-over-week + YTD views from Excel uploads</li>
+              <li>HOT opportunity cards with FCL / LCL / Air tags</li>
+              <li>Auto-loads from GitHub — no manual refresh</li>
+            </ul>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">Outcome</div>
+            <p class="proj-outcome">Eliminated weekly manual consolidation. Leadership gained a real-time view of pipeline movement, owner performance and priority deals — accessible from any device, updated in seconds.</p>
+          </div>
+        </div>
+        <div class="demo-strip">
+          <div class="demo-label">Dashboard preview (sanitized demo)</div>
+          <div class="mockup">
+            <div class="mock-topbar"><div class="mock-dots"><div class="mock-dot" style="background:#FF5F57"></div><div class="mock-dot" style="background:#FFBD2E"></div><div class="mock-dot" style="background:#28CA41"></div></div><div class="mock-url">pipeline-dashboard.github.io</div></div>
+            <div class="mock-kpis">
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#1A5FD4">5,575</div><div class="mock-kpi-l">Opportunities</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#0C7A4A">R$3.8B</div><div class="mock-kpi-l">Revenue</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#8A5C0A">342</div><div class="mock-kpi-l">HOT opps</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#5B21B6">R$685K</div><div class="mock-kpi-l">Avg ticket</div></div>
+            </div>
+            <div class="mock-charts">
+              <div class="mock-chart">
+                <div class="mock-bar" style="height:45px;background:#3578F0;opacity:.7"></div>
+                <div class="mock-bar" style="height:60px;background:#3578F0;opacity:.8"></div>
+                <div class="mock-bar" style="height:38px;background:#3578F0;opacity:.7"></div>
+                <div class="mock-bar" style="height:72px;background:#3578F0"></div>
+                <div class="mock-bar" style="height:50px;background:#3578F0;opacity:.75"></div>
+                <div class="mock-bar" style="height:65px;background:#3578F0;opacity:.9"></div>
+                <div class="mock-bar" style="height:42px;background:#3578F0;opacity:.7"></div>
+                <div class="mock-bar" style="height:55px;background:#3578F0;opacity:.8"></div>
+              </div>
+              <div class="mock-donut">
+                <svg class="donut-svg" viewBox="0 0 42 42">
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#3578F0" stroke-width="6" stroke-dasharray="55 45" stroke-dashoffset="25"/>
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#16A869" stroke-width="6" stroke-dasharray="35 65" stroke-dashoffset="-30"/>
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F59E0B" stroke-width="6" stroke-dasharray="10 90" stroke-dashoffset="-65"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-tech"><span class="tech-pill">HTML</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Chart.js</span><span class="tech-pill">XLSX.js</span><span class="tech-pill">GitHub Pages</span><span class="tech-pill">CRM Export</span></div>
+      </article>
+
+      <!-- PROJECT 2 -->
+      <article class="card proj">
+        <div class="proj-hdr">
+          <div class="proj-icon" style="background:#E4F7EE">🏗️</div>
+          <div class="proj-hdr-body">
+            <h3>Projects Operations Control Tower</h3>
+            <p>End-to-end operational dashboard for project cargo tracking — covering the full container journey from origin to final delivery, with demurrage exposure, incident monitoring and branch-level concentration analysis.</p>
+          </div>
+          <div class="proj-hdr-right">
+            <span class="tag green">Operations</span>
+            <span class="tag gray">HTML · JavaScript</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-title">The problem</div>
+            <p>Operational data was scattered across multiple Excel tabs. Project managers had no consolidated view of container status, demurrage exposure or delivery progress by client.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">What I built</div>
+            <ul>
+              <li>5-tab dashboard: Overview, Journey, Tracker, Incidents, Demurrage</li>
+              <li>End-to-end journey from origin → customs → transit → delivery</li>
+              <li>Multi-client scalable: one file per client, same template</li>
+              <li>Financial demurrage exposure with vessel-level breakdown</li>
+              <li>Full incident log with carrier and occurrence analysis</li>
+            </ul>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">Outcome</div>
+            <p class="proj-outcome">Gave project managers a single source of truth per client. Reduced time to identify delays and bottlenecks. Scalable to any new client just by swapping the data file.</p>
+          </div>
+        </div>
+        <div class="demo-strip">
+          <div class="demo-label">Dashboard preview (sanitized demo)</div>
+          <div class="mockup">
+            <div class="mock-topbar"><div class="mock-dots"><div class="mock-dot" style="background:#FF5F57"></div><div class="mock-dot" style="background:#FFBD2E"></div><div class="mock-dot" style="background:#28CA41"></div></div><div class="mock-url">dsv-control-tower.github.io</div></div>
+            <div class="mock-kpis">
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#1A5FD4">248</div><div class="mock-kpi-l">Total containers</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#0C7A4A">174</div><div class="mock-kpi-l">Delivered</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#B91C1C">R$892K</div><div class="mock-kpi-l">Demurrage</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-v" style="color:#8A5C0A">12</div><div class="mock-kpi-l">Incidents</div></div>
+            </div>
+            <div class="mock-charts">
+              <div class="mock-chart" style="align-items:center;justify-content:space-around;flex-wrap:wrap;gap:4px">
+                <div style="font-size:9px;color:var(--t3);font-family:var(--mono)">Origin → Customs → Transit → Delivery</div>
+                <div style="display:flex;align-items:flex-end;gap:3px;width:100%">
+                  <div style="flex:1;height:30px;background:#EBF1FD;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#1A5FD4;font-weight:700">48</div>
+                  <div style="color:var(--t3);font-size:9px">→</div>
+                  <div style="flex:1;height:40px;background:#EBF1FD;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#1A5FD4;font-weight:700">62</div>
+                  <div style="color:var(--t3);font-size:9px">→</div>
+                  <div style="flex:1;height:25px;background:#EBF1FD;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#1A5FD4;font-weight:700">14</div>
+                  <div style="color:var(--t3);font-size:9px">→</div>
+                  <div style="flex:1;height:55px;background:#E4F7EE;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#0C7A4A;font-weight:700">174</div>
+                </div>
+              </div>
+              <div class="mock-donut">
+                <svg class="donut-svg" viewBox="0 0 42 42">
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#16A869" stroke-width="6" stroke-dasharray="70 30" stroke-dashoffset="25"/>
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F59E0B" stroke-width="6" stroke-dasharray="20 80" stroke-dashoffset="-45"/>
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#EF4444" stroke-width="6" stroke-dasharray="10 90" stroke-dashoffset="-65"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-tech"><span class="tech-pill">HTML</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Chart.js</span><span class="tech-pill">Excel (Raw_Data)</span><span class="tech-pill">GitHub Pages</span><span class="tech-pill">Multi-client</span></div>
+      </article>
+
+      <!-- PROJECT 3 -->
+      <article class="card proj">
+        <div class="proj-hdr">
+          <div class="proj-icon" style="background:#FEF3E2">✈️</div>
+          <div class="proj-hdr-body">
+            <h3>Operations Shipment Tracker — FCL · AIR · LCL</h3>
+            <p>Unified shipment performance dashboard consolidating three modalities (Sea FCL, Air, Sea LCL) with 2025 vs 2026 year-over-year comparison, branch-level analysis and IMPO/EXPO breakdown.</p>
+          </div>
+          <div class="proj-hdr-right">
+            <span class="tag amber">Logistics Ops</span>
+            <span class="tag gray">HTML · JavaScript</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-title">The problem</div>
+            <p>Three separate Excel dashboards for FCL, AIR and LCL. No consolidated view, no YoY comparison, no branch-level breakdown. Manual work every week to see the full picture.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">What I built</div>
+            <ul>
+              <li>Single dashboard reading 3 separate Excel files</li>
+              <li>Volume KPIs: TEU (FCL), CBM (LCL), KG (Air)</li>
+              <li>2025 vs 2026 comparison with % delta on every metric</li>
+              <li>9 branches with full names mapped (CPQ → Campinas etc.)</li>
+              <li>IMPO vs EXPO split, weekly trends, modal mix</li>
+            </ul>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">Outcome</div>
+            <p class="proj-outcome">Replaced 3 manual weekly Excels with one live dashboard. Operations managers gained instant visibility into volume trends, branch concentration and year-over-year performance.</p>
+          </div>
+        </div>
+        <div class="proj-tech"><span class="tech-pill">HTML</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Chart.js</span><span class="tech-pill">Multi-file Excel</span><span class="tech-pill">GitHub Pages</span><span class="tech-pill">YoY comparison</span></div>
+      </article>
+
+      <!-- PROJECT 4 -->
+      <article class="card proj">
+        <div class="proj-hdr">
+          <div class="proj-icon" style="background:#EDE9FE">⚙️</div>
+          <div class="proj-hdr-body">
+            <h3>CRM Process Optimization & Pipeline Governance</h3>
+            <p>End-to-end CRM redesign — from fragmented workflows to a structured, governed pipeline with standardized stages, data validation, automation and reporting that leadership could actually rely on.</p>
+          </div>
+          <div class="proj-hdr-right">
+            <span class="tag purple">RevOps / CRM</span>
+            <span class="tag gray">Dynamics 365 · HubSpot</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-title">The problem</div>
+            <p>Duplicate records, inconsistent stage definitions, no field governance, manual reporting and zero visibility into deal aging. Forecast accuracy was low and leadership had no confidence in the numbers.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">What I did</div>
+            <ul>
+              <li>Mapped and standardized the full lead → close funnel</li>
+              <li>Implemented field validation and mandatory fields by stage</li>
+              <li>Automated repetitive tasks: follow-up reminders, stage transitions</li>
+              <li>Built a centralized reporting structure consumed by leadership weekly</li>
+              <li>Trained the sales team on new CRM hygiene standards</li>
+            </ul>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">Outcome</div>
+            <p class="proj-outcome">↑ 15–25% early-stage conversion. ↓ 20% deal stagnation time. Forecast reliability improved significantly. ~30% reduction in manual admin workload across the team.</p>
+          </div>
+        </div>
+        <div class="proj-tech"><span class="tech-pill">Microsoft Dynamics 365</span><span class="tech-pill">HubSpot</span><span class="tech-pill">Power BI</span><span class="tech-pill">Excel</span><span class="tech-pill">Process Design</span></div>
+      </article>
+
+      <!-- PROJECT 5 -->
+      <article class="card proj">
+        <div class="proj-hdr">
+          <div class="proj-icon" style="background:#FEE8E8">🔥</div>
+          <div class="proj-hdr-body">
+            <h3>Revenue Forecasting & Pipeline Health Reporting</h3>
+            <p>Structured forecasting routine and pipeline health framework connecting CRM data to commercial leadership decisions — making weekly reviews faster, more focused and more actionable.</p>
+          </div>
+          <div class="proj-hdr-right">
+            <span class="tag red">Forecasting</span>
+            <span class="tag gray">Excel · Power BI</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-title">The problem</div>
+            <p>No structured forecasting routine. Revenue reviews were reactive, based on incomplete data. Sales managers spent more time building the report than acting on it.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">What I built</div>
+            <ul>
+              <li>Weekly pipeline review template with stage-weighted forecast</li>
+              <li>Conversion rate tracking by stage, owner and division</li>
+              <li>Deal aging alerts to flag stagnant opportunities early</li>
+              <li>Forecast vs actual tracking over rolling 4-week windows</li>
+              <li>Executive summary slide auto-generated from the data</li>
+            </ul>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-title">Outcome</div>
+            <p class="proj-outcome">Leadership moved from reactive to proactive pipeline management. Forecast meetings became shorter and more decision-focused. Visibility into at-risk deals increased significantly.</p>
+          </div>
+        </div>
+        <div class="proj-tech"><span class="tech-pill">Excel Advanced</span><span class="tech-pill">Power BI</span><span class="tech-pill">CRM Data</span><span class="tech-pill">Forecasting Models</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="sec" id="experience">
+    <div class="sec-hdr">
+      <div>
+        <div class="sec-title">Experience</div>
+        <div class="sec-sub">7+ years across B2B, logistics, tech and FMCG</div>
+      </div>
+    </div>
+    <div class="card" style="padding:28px 32px">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">Oct 2025<br>Present</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-title">Senior Sales Operations Analyst</div>
+            <div class="tl-company">DSV — Global Transport and Logistics</div>
+            <ul>
+              <li>Built sales performance dashboards and executive reporting for commercial leadership across LATAM</li>
+              <li>Designed and deployed custom HTML/JS dashboards replacing manual Excel workflows</li>
+              <li>Improved pipeline visibility and data consistency by redesigning CRM workflows</li>
+              <li>Partnered with Sales, Finance, and Operations to improve forecast accuracy</li>
+            </ul>
+            <div class="tl-achievements">
+              <span class="ach">↑ 15–25% conversion</span>
+              <span class="ach">↓ 20% deal stagnation</span>
+              <span class="ach">HTML · Python · Dynamics 365</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Feb 2025<br>Oct 2025</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-title">Sales Operations Specialist</div>
+            <div class="tl-company">JoomPro Brasil</div>
+            <ul>
+              <li>Managed CRM pipeline monitoring, funnel conversion analysis and bottleneck identification</li>
+              <li>Built performance dashboards and reports for leadership and weekly sales routines</li>
+              <li>Aligned Sales, Finance, Legal, Logistics and Payments around deal execution workflows</li>
+            </ul>
+            <div class="tl-achievements"><span class="ach">HubSpot</span><span class="ach">Pipeline governance</span><span class="ach">Cross-functional ops</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jun 2024<br>Feb 2025</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-title">Sales Analyst</div>
+            <div class="tl-company">Tabas by Blueground</div>
+            <ul>
+              <li>Analyzed sales performance and built dashboards to monitor KPIs and commercial results</li>
+              <li>Supported pricing, forecasting and commercial strategy decisions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jan 2024<br>May 2024</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-title">Trade Marketing Analyst — Pharma & Digital</div>
+            <div class="tl-company">Amend Cosméticos</div>
+            <ul>
+              <li>Managed trade budgets, promotional campaigns and sell-out performance tracking</li>
+              <li>Automated administrative processes and built KPI reporting for stakeholders</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Nov 2022<br>Jan 2024</div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-title">Trade Marketing Analyst — Indirect Channel</div>
+            <div class="tl-company">Sungrow Power Supply Co.</div>
+            <ul>
+              <li>Managed channel partner strategy, CRM data quality and distributor performance analysis</li>
+              <li>Developed co-marketing initiatives and tracked ROI across distribution channels</li>
+            </ul>
+            <div class="tl-achievements"><span class="ach">Salesforce</span><span class="ach">Channel analytics</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="sec" id="skills">
+    <div class="sec-hdr">
+      <div>
+        <div class="sec-title">Skills & Tools</div>
+        <div class="sec-sub">What I bring to a RevOps or Sales Ops team</div>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-title">Revenue Operations</div>
+        <div class="skill-items">
+          <span class="skill-item">Pipeline management</span><span class="skill-item">Funnel analytics</span><span class="skill-item">Forecasting</span><span class="skill-item">CRM hygiene</span><span class="skill-item">Stage governance</span><span class="skill-item">Conversion tracking</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-title">CRM & Data Tools</div>
+        <div class="skill-items">
+          <span class="skill-item">HubSpot</span><span class="skill-item">Dynamics 365</span><span class="skill-item">Power BI</span><span class="skill-item">Excel Advanced</span><span class="skill-item">RD Station</span><span class="skill-item">Nielsen / Kantar</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <div class="skill-title">Technical Build</div>
+        <div class="skill-items">
+          <span class="skill-item">HTML / CSS</span><span class="skill-item">JavaScript</span><span class="skill-item">Chart.js</span><span class="skill-item">Python (basic)</span><span class="skill-item">GitHub Pages</span><span class="skill-item">Dashboard design</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔄</div>
+        <div class="skill-title">Process & Ops</div>
+        <div class="skill-items">
+          <span class="skill-item">Process mapping</span><span class="skill-item">Automation</span><span class="skill-item">Cross-functional alignment</span><span class="skill-item">Scrum</span><span class="skill-item">Six Sigma YB</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🌍</div>
+        <div class="skill-title">Languages</div>
+        <div class="lang-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-top:4px">
+          <div class="lang-card" style="padding:10px">
+            <div class="lang-flag">🇧🇷</div><div class="lang-name">Portuguese</div><div class="lang-level">Native</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          </div>
+          <div class="lang-card" style="padding:10px">
+            <div class="lang-flag">🇺🇸</div><div class="lang-name">English</div><div class="lang-level">Fluent · C2</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
+          </div>
+          <div class="lang-card" style="padding:10px">
+            <div class="lang-flag">🇪🇸</div><div class="lang-name">Spanish</div><div class="lang-level">Intermediate</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
+          </div>
+          <div class="lang-card" style="padding:10px">
+            <div class="lang-flag">🇩🇪</div><div class="lang-name">German</div><div class="lang-level">Basic</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:25%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎓</div>
+        <div class="skill-title">Education & Certs</div>
+        <div class="skill-items">
+          <span class="skill-item">MBA · Commercial Mgmt</span><span class="skill-item">BSc · Business Admin</span><span class="skill-item">BSc · Advertising</span><span class="skill-item">Scrum Foundation</span><span class="skill-item">Six Sigma Yellow Belt</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec">
+    <div class="cta-section">
+      <h2>Let's build something together</h2>
+      <p>I'm open to RevOps, GTM Operations, CRM and Sales Ops roles — remote or relocation. If you're building a data-driven commercial team, I'd love to talk.</p>
+      <div class="cta-actions">
+        <a href="mailto:vitoriaregiabs01@gmail.com" class="btn-white">✉ vitoriaregiabs01@gmail.com</a>
+        <a href="https://www.linkedin.com/in/victoria-regia-barros/" target="_blank" class="btn-outline-white">↗ LinkedIn Profile</a>
+        <button class="btn-outline-white" onclick="window.print()">⊕ Download as CV</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  Victoria Régia Barros Silva · RevOps & Sales Operations · São Paulo, Brazil · Open to Remote & Relocation<br>
+  vitoriaregiabs01@gmail.com · github.com/vitoriaregiabs01-rgb · linkedin.com/in/victoria-regia-barros
+</footer>
+
+</body>
+</html>
